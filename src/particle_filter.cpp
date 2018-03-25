@@ -88,6 +88,8 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 	// NOTE: this method will NOT be called by the grading code. But you will probably find it useful to 
 	//   implement this method and use it as a helper during the updateWeights phase.
 
+	// Not used! Associations handled in updateWeights.
+
 }
 
 void ParticleFilter::updateWeights(double sensor_range, double std_landmark[], 
@@ -103,6 +105,11 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 	//   3.33
 	//   http://planning.cs.uiuc.edu/node99.html
 	
+
+	// Note on source: a nice summary of procedure to be followed in update weights is 
+	// given in the Udacity forum thread  : https://discussions.udacity.com/t/c-help-with-dataassociation-method/291220/5
+	// Below code highly influenced by the post by user "driveWell"
+
 	//constants for weight calculation:
 	const double gauss_norm= 1.0 / (2.0 * M_PI * std_landmark[0] * std_landmark[1]);
 	const double sigma_x_term = -0.5 / (std_landmark[0] * std_landmark[0]);
